@@ -1,5 +1,0 @@
-*.log
-runtime
-tests
-composer.json
-phpunit.xml
