@@ -24,7 +24,9 @@ function is_login()
 {
     $arrUserInfo = session('user_auth');
     if (empty($arrUserInfo)) {
-        return 0;
+        $intUid = app\usercenter\controller\Member::getCookieUid();
+
+        return $intUid !== false ? intval($intUid) : 0;
     } else {
         return session('user_auth_sign') == data_auth_sign($arrUserInfo) ? $arrUserInfo['uid'] : 0;
     }
@@ -40,7 +42,13 @@ function is_login()
  */
 function get_user_info() {
     $arrUserInfo = session('user_auth');
-    if (empty($arrUserInfo)) {
+    if (!empty($arrUserInfo)) {
+        $intUid = app\usercenter\controller\Member::getCookieUid();
+        if (0 < $intUid) {
+            $arrUserInfo = app\usercore\model\UserInfo::getUserAttr($intUid, array('uid', 'username', 'last_login_time'));
+
+            return empty($arrUserInfo) ? null : $arrUserInfo;
+        }
         return null;
     } else {
         return session('user_auth_sign') == data_auth_sign($arrUserInfo) ? $arrUserInfo : null;

@@ -46,49 +46,18 @@
                     </li>
                 </ul>
 
-                <if condition="0">
+                <if condition="is_login()">
                     <!-- 登录后 -->
-                    
+                    <php>
+                        $userInfoForHeader = get_user_info();
+                    </php>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="{:url('Message/Message/getMsgList', array('uid' => $userInfoForHeader['uid']))}"><span class="glyphicon glyphicon-bell"></span>
-                            <notempty name="messageNumForHeader">
-                            <span class="badge pull-right" id="notice">
-                            <elt name="messageNumForHeader" value="99">
-                                {$userInfoForHeader['uid']|getNoticeNum}
-                            <else />
-                                99+
-                            </elt>
-                            </span></notempty>通知</a>
-                            <notempty name="messageInfoForHeader">
-                            <ul class="dropdown-menu" role="menu" id="message-list">
-                                <volist name="messageInfoForHeader" id="messageInfo">
-                                <li>
-                                    <notempty name="messageInfo.url">
-                                        <a href="{$messageInfo.url}">
-                                    </notempty>
-                                        {$messageInfo.content}
-                                    <notempty name="messageInfo.url">
-                                        </a>
-                                    </notempty>
-                                </li>
-                                </volist>
-                                <li id="more-message"><a href="{:url('Message/Message/getMsgList', array('uid' => $userInfoForHeader['uid']))}">更多>></a></li>
-                            </ul>
-                            </notempty>
+                            
                         </li>
                         <li class="dropdown">
-                            <a href="#"class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>{$userInfoForHeader.nickname}<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{$userInfoForHeader.space_url}">个人中心</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{$userInfoForHeader.creative_url}">我创建的</a></li>
-                                <li><a href="{$userInfoForHeader.join_url}">我参与的</a></li>
-                                <li><a href="{$userInfoForHeader.watch_url}">我关注的</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{$userInfoForHeader.option_url}">选项</a></li>
-                                <li><a href="{:url('Ucenter/Member/logout')}">注销</a></li>
-                            </ul>
+                            <a href="#"class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>{$userInfoForHeader.username}<span class="caret"></span></a>
+                            
                         </li>
                         <li>
                             <a href="#" data-toggle="modal" data-target="#about-modal"><span class="glyphicon glyphicon-paperclip">联系我们</a>
@@ -106,7 +75,7 @@
 
                 <!-- 搜索框 -->
                 <block name="header-search">
-                <form class="navbar-form navbar-right" style="width: 40%">
+                <form class="navbar-form navbar-right" style="width: 30%">
                     <div class="form-group" style="width: 100%;">
                         <input type="text" placeholder="Search your interests" class="form-control" id="input_search">
                         <button type="submit" class="btn btn-success">Go!</button>

@@ -21,7 +21,6 @@ use think\Request;
 class Index extends Controller {
 
     public function index() {
-
         $this->assign('meta_title', 'EasyX 树屋');
         return $this->fetch();
     }

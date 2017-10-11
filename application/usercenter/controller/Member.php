@@ -168,11 +168,11 @@ class Member extends Controller {
             $strToken      = $arrToken['token'];
         }
 
-        if ($bolForce || !$this->getCookieUid()) {
+        if ($bolForce || !self::getCookieUid()) {
             //设置cookie
             $intExpireTime = $bolForce ? 604800 : 1800;
             $strUk         = uid2uk($intUid);
-            cookie('EASYX_USER', $this->_encrypt($this->_change() . ".{$strUk}.{$strToken}"), $intExpireTime);
+            cookie('EASYX_USER', self::_encrypt(self::_change() . ".{$strUk}.{$strToken}"), $intExpireTime);
         }
 
         $this->success('恭喜登录成功', 'index/Index/index');
@@ -297,7 +297,7 @@ class Member extends Controller {
      * @param   void
      * @return  int | bool        成功返回uid，失败返回false
      */
-    protected function getCookieUid() {
+    public static function getCookieUid() {
         static $intCookieUid = null;
         if (isset($intCookieUid) && $intCookieUid !== null) {
             return $intCookieUid;
@@ -307,10 +307,13 @@ class Member extends Controller {
             return false;
         }
 
-        $arrCookie    = explode(".", $this->_decrypt($strCookie));
+        $arrCookie    = explode(".", self::_decrypt($strCookie));
         $intUid       = uk2uid($arrCookie[1]);
         $arrToken     = UserToken::getToken($intUid);
-        $intCookieUid = ($arrCookie[0] != $this->_change()) || ($arrCookie[2] != $arrToken['token']) ? false : $intUid;
+        if (empty($arrToken)) {
+            return false;
+        }
+        $intCookieUid = ($arrCookie[0] != self::_change()) || ($arrCookie[2] != $arrToken['token']) ? false : $intUid;
         $intCookieUid = $arrToken['expire_time'] - time() <= 0 ? false : $intUid;
 
         return $intCookieUid;
@@ -325,9 +328,9 @@ class Member extends Controller {
      * @param  string    $key      加密密钥
      * @return string              加密后的字符串
      */
-    private function _encrypt($txt, $key = null)
+    private static function _encrypt($txt, $key = null)
     {
-        empty($key) && $key = $this->_change();
+        empty($key) && $key = self::_change();
 
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-=_";
         $nh    = rand(0, 64);
@@ -356,9 +359,9 @@ class Member extends Controller {
      * @param  string     $key     解密密钥
      * @return string              解密后的字符串
      */
-    private function _decrypt($txt, $key = null)
+    private static function _decrypt($txt, $key = null)
     {
-        empty($key) && $key = $this->_change();
+        empty($key) && $key = self::_change();
 
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-=_";
         $ch    = $txt[0];
@@ -390,8 +393,9 @@ class Member extends Controller {
      * @param   void
      * @return  string              密钥
      */
-    private function _change() {
-        preg_match_all('/\w/', $this->_arrConf['user']['DATA_AUTH_KEY'], $sss);
+    private static function _change() {
+        $arrConf = Config::load(APP_PATH . 'usercenter/extra/User.php', 'user');
+        preg_match_all('/\w/', $arrConf['DATA_AUTH_KEY'], $sss);
         $str1 = '';
         foreach ($sss[0] as $v) {
             $str1 .= $v;

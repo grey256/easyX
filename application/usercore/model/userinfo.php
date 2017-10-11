@@ -72,6 +72,9 @@ class UserInfo extends Model {
         }
 
         $arrRet = self::where('uid', $intUid)->column($strFields);
+        if (!empty($arrRet)) {
+            return $arrRet[$intUid];
+        }
 
         return $arrRet;
     }
