@@ -1,0 +1,101 @@
+<extend name="Common@Base/base"/>
+
+<block name="style">
+<link type="text/css" rel="stylesheet" href="__APP__/usercenter/css/register.css"/>
+</block>
+
+<block name="body">
+<div class="container signup">
+    <div class="row signup-row">
+        <h2 class="step-title">
+            加入OpenIdea
+            <small>一起逐梦</small>
+        </h2>
+        <ol class="step-list">
+            <li class="col-md-4 current">
+                <span class="glyphicon glyphicon-user"></span>
+                <strong>步骤一：</strong><br/>
+                创建一个账号
+            </li>
+            <li class="col-md-4">
+                <span class="glyphicon glyphicon-asterisk"></span>
+                <strong>步骤二：</strong><br/>
+                选择想读的书籍
+            </li>
+            <li class="col-md-4">
+                <span class="glyphicon glyphicon-th-list"></span>
+                <strong>步骤三：</strong><br/>
+                读书，分享、解惑、消化
+            </li>
+        </ol>
+    </div>
+
+    <div class="row signup-row">
+        <div class="col-md-8 left-form">
+            <form class="form-signup" method="post" action="register">
+                <dl class="form">
+                    <dt class="input-label">
+                        <label for="inputUserName" class="sr-only">昵称</label>
+                    </dt>
+                    <dd>
+                        <input type="username" id="inputUser" name="username" class="form-control" placeholder="昵称" required autofocus>
+                        <p class="note">登录用户名</p>
+                    </dd>
+                </dl>
+                <dl class="form">
+                    <dt class="input-label">
+                        <label for="inputEmail" class="sr-only">邮箱</label>
+                    </dt>
+                    <dd>
+                        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="邮箱" required>
+                        <p class="note">用于验证登录信息及找回密码，我们承诺绝不会泄露您的邮箱及隐私</p>
+                    </dd>
+                </dl>
+                <dl class="form">
+                    <dt class="input-label">
+                        <label for="inputPassword" class="sr-only">密码</label>
+                    </dt>
+                    <dd>
+                        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" required>
+                        <p class="note">登录密码，至少6位，确保数字，大、小写字母，下划线至少存在两种</p>
+                    </dd>
+                </dl>
+                <dl class="form">
+                    <dt class="input-label">
+                        <label for="inputPassword" class="sr-only">确认密码</label>
+                    </dt>
+                    <dd>
+                        <input type="password" id="reinputPassword" name="re_password" class="form-control" placeholder="确认密码" required>
+                        <p class="note">请再次确认密码</p>
+                    </dd>
+                </dl>
+                <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> 记住我
+                </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+            </form>
+        </div>
+
+        <div class="col-md-4 right-box">
+            <h2 class="right-box-title"><strong>这里聚焦读书兴趣</strong></h2>
+            <ol class="features-list">
+                <li><strong>这里</strong>可以让你：</li>
+                <li class="list-divider"></li>
+                <li>
+                    读感兴趣的书<br>
+                    <span class="glyphicon glyphicon-arrow-down" style="color: green;"></span>
+                </li>
+                <li>
+                    寻志同道合的人<br>
+                    <span class="glyphicon glyphicon-arrow-down" style="color: green;"></span>
+                </li>
+                <li>
+                    思想汇聚 <small>or</small> 碰撞<br>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+</block>

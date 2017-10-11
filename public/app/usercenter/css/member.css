@@ -1,0 +1,172 @@
+@charset utf-8;
+
+/*全局*/
+.member-container {
+    margin: 0 auto 80px auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #eee;
+}
+
+/*左侧信息栏*/
+.info-row {
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+/*头像*/
+.avatar {
+    height: 100%;
+    padding: 20px 55px;
+}
+
+.avatar #btn-care {
+    height: 35px;
+    margin-left: 28px;
+}
+
+#careNum {
+    padding-left: 40px;
+}
+
+/*内容信息*/
+.info-pannel {
+    margin-top: 10px;
+}
+
+.info-pannel-heading {
+    width: 60px;
+    padding-left: 14px;
+    height: 16px;
+    font-size: 12px;
+    border-radius: 1px;
+    border-bottom: none;
+}
+
+#idea-panel .info-pannel-heading{
+    background-color: #EFB;
+    border: 1px solid #EFB;
+}
+
+#project-panel .info-pannel-heading{
+    background-color: #6FF;
+    border: 1px solid #6FF;
+}
+
+.info-pannel-body {
+    border-radius: 3px;
+}
+
+#idea-panel .info-pannel-body {
+    border: 1px solid #EFB;
+}
+
+#project-panel .info-pannel-body{
+    border: 1px solid #6FF;
+}
+
+.user-action {
+    color: #5a5a5a;
+}
+
+/*扩展信息*/
+#expand-tab a {
+    color: #5a5a5a;
+}
+
+#expand-info {
+    padding-top: 30px 0;
+}
+
+.tab-pane {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.tab-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.tab-list a:hover {
+    color: #7DF;
+    text-decoration: underline;
+}
+
+.tab-list li {
+    padding-left: 30px;
+    line-height:50px;
+}
+
+.tab-list li:hover {
+    border-radius: 3px;
+    border-top: 1px solid #d8dee2;
+    border-bottom: 1px solid #d8dee2;
+    background-color: #F5F5F5;
+}
+
+.expand-title {
+    padding: 0;
+    font-size: 17px;
+}
+
+.expend-content {
+    width: 100%;
+}
+
+.expand-message {
+    color: #ccc;
+    font-size: 12px;
+    text-align: right;
+}
+
+.expand-time {
+    color: #ccc;
+    font-size: 12px;
+}
+
+
+/*右侧推荐栏*/
+.recommend {
+    margin-top: 50px;
+}
+
+.recommend a {
+    color: #5a5a5a;
+}
+
+.recommend-heading {
+    font-size: 18px;
+    padding: 0 5px;
+    background-color: #eee;
+}
+
+.recommend-box {
+    margin-top: 30px;
+}
+
+.recommend-title {
+    font-size: 15px;
+}
+
+.recommend-list {
+    padding: 0 0 0 20px;
+    margin: 0;
+    line-height:24px;
+    list-style: none;
+}
+
+.recommend-list a:hover {
+    color: #7DF;
+    text-decoration: underline;
+}
+
+.recommend .list-divider {
+    margin: 10px auto;
+    border-top: 1px solid #eee;
+}
+
+/*.recommend-list a:visited {
+    color: #ccc;
+}*/

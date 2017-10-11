@@ -1,0 +1,134 @@
+@charset utf-8;
+
+/*注册页面*/
+.signup {
+    max-width: 750px;
+    padding-bottom: 50px;
+    margin: 0 auto 80px auto;
+    border-bottom: 1px solid #eee;
+}
+
+.signup-row {
+    padding: 10px 0px;
+}
+
+/*步骤列表*/
+.step-list {
+    width: 100%;
+    display: table;
+    margin: 30px auto 0;
+    overflow: hidden;
+    list-style: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.step-list li:first-child {
+    border-left: 0;
+}
+
+.step-list li.current {
+    background-color: #fff;
+    color: #333;
+}
+
+.step-list li {
+    display: table-cell;
+    width: 33.3%;
+    padding: 10px 15px;
+    color: #ccc;
+    cursor: default;
+    border-left: 1px solid #ddd;
+    background-color: #fafafa;
+}
+
+
+/*左侧表单*/
+.left-form {
+    padding: 0;
+}
+
+.form-signup {
+    padding: 10px 30px 0 0;
+}
+
+.form-signup .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signup .checkbox {
+    font-weight: normal;
+}
+
+.form-signup .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signup .form-control:focus {
+    z-index: 2;
+}
+.form-signup input[type="username"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signup input[type="email"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signup input[type="mobile"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signup input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.note {
+    min-height: 17px;
+    margin: 4px 0 2px;
+    font-size: 12px;
+    color: #767676;
+}
+
+/*右边栏*/
+.right-box {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 0 0 10px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.075);
+    text-align: center;
+}
+
+.right-box .right-box-title {
+    padding-bottom: 15px;
+    overflow: hidden;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-divider {
+    margin: 10px auto;
+    border-top: 1px solid #eee;
+}
+
+.features-list {
+    padding: 0 0;
+    margin: 0;
+    font-size: 14px;
+    list-style: none;
+}
+

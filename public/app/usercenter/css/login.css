@@ -1,0 +1,34 @@
+@charset utf-8;
+
+/*登录页面*/
+.signin {
+    max-width: 340px;
+    margin: 0 auto 50px auto;
+}
+
+.signin-row {
+    margin-bottom: 10px;
+}
+
+.signin-row .signin-title {
+    text-align: center;
+}
+
+.signin-form {
+    border-radius: 5px;
+    border: 1px solid #d8dee2;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.signin-up{
+    border-radius: 5px;
+    border: 1px solid #d8dee2;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.signin-up small {
+    color: #4078c0;
+}
+/*登录页面 结束*/

@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><block name="title">{$meta_title}</block></title>
+    <link href="__STATIC__/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <link href="__STATIC__/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/css/layout.css" rel="stylesheet" type="text/css">
+    <block name="style"></block>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+    <!-- 头部 -->
+    <!-- header -->
+    <block name="header">
+    <!-- 导航栏 开始-->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="menu-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{:url('index/index')}">EasyX树屋</a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{:url('index/Index/index')}"><span class="glyphicon glyphicon-home"> 首页</a></li>
+                    <li><a href="{:url('book/Index/index')}"><span class="glyphicon glyphicon-asterisk"></span> 我读</a></li>
+                    <li><a href="{:url('book/Index/index')}"><span class="glyphicon glyphicon-asterisk"></span> 我问</a></li>
+                    <li><a href="{:url('book/Index/index')}"><span class="glyphicon glyphicon-asterisk"></span> 我思</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> EasyX<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#feature-tab" data-tab="tab-booklist">书单</a></li>
+                            <li><a href="#feature-tab" data-tab="tab-wiki">Wiki</a></li>
+                            <li><a href="#feature-tab" data-tab="tab-passwd">Password Storage</a></li>
+                            <li><a href="#feature-tab" data-tab="tab-search">聚合搜索</a></li>
+                            <li><a href="#feature-tab" data-tab="tab-tools">小工具</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <if condition="0">
+                    <!-- 登录后 -->
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{:url('Message/Message/getMsgList', array('uid' => $userInfoForHeader['uid']))}"><span class="glyphicon glyphicon-bell"></span>
+                            <notempty name="messageNumForHeader">
+                            <span class="badge pull-right" id="notice">
+                            <elt name="messageNumForHeader" value="99">
+                                {$userInfoForHeader['uid']|getNoticeNum}
+                            <else />
+                                99+
+                            </elt>
+                            </span></notempty>通知</a>
+                            <notempty name="messageInfoForHeader">
+                            <ul class="dropdown-menu" role="menu" id="message-list">
+                                <volist name="messageInfoForHeader" id="messageInfo">
+                                <li>
+                                    <notempty name="messageInfo.url">
+                                        <a href="{$messageInfo.url}">
+                                    </notempty>
+                                        {$messageInfo.content}
+                                    <notempty name="messageInfo.url">
+                                        </a>
+                                    </notempty>
+                                </li>
+                                </volist>
+                                <li id="more-message"><a href="{:url('Message/Message/getMsgList', array('uid' => $userInfoForHeader['uid']))}">更多>></a></li>
+                            </ul>
+                            </notempty>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>{$userInfoForHeader.nickname}<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{$userInfoForHeader.space_url}">个人中心</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{$userInfoForHeader.creative_url}">我创建的</a></li>
+                                <li><a href="{$userInfoForHeader.join_url}">我参与的</a></li>
+                                <li><a href="{$userInfoForHeader.watch_url}">我关注的</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{$userInfoForHeader.option_url}">选项</a></li>
+                                <li><a href="{:url('Ucenter/Member/logout')}">注销</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#about-modal"><span class="glyphicon glyphicon-paperclip">联系我们</a>
+                        </li>
+                    </ul>
+                    <!-- 登录后 结束-->
+                <else/>
+                    <!-- 未登录 -->
+                    <div class="navbar-collapse collapse navbar-right">
+                            <a href="{:url('usercenter/Member/register')}" type="button" class="btn btn-default navbar-btn">注册</a>
+                            <a href="{:url('usercenter/Member/login')}" type="button" class="btn btn-default navbar-btn">登录</a>
+                    </div>
+                    <!-- 未登录 结束 -->
+                </if>
+
+                <!-- 搜索框 -->
+                <block name="header-search">
+                <form class="navbar-form navbar-right" style="width: 40%">
+                    <div class="form-group" style="width: 100%;">
+                        <input type="text" placeholder="Search your interests" class="form-control" id="input_search">
+                        <button type="submit" class="btn btn-success">Go!</button>
+                    </div>
+                </form>
+                </block>
+                <!-- 搜索框 结束-->
+            </div>
+        </div>
+    </div>
+    <!-- 导航栏 结束 -->
+    <!-- header end -->
+    <block name="add_header"></block>
+    </block>
+    <!-- /头部 -->
+
+    <!-- 主体 -->
+    <block name="body"></block>
+    <!-- /主体 -->
+
+    <!-- 底部 -->
+    <div class="container">
+        <footer class="footer text-center">
+            <block name="back_to_top">
+                <h6 class="pull-right"><a href="#">Back to top</a></h6>
+            </block>
+            <h6>&copy; 2017 &middot; <a href="mailto:ls6dlh@foxmail.com">Grey256</a> &middot; <a href="mailto:ls6dlh@foxmail.com">Terms</a></h6>
+        </footer>
+    </div>
+
+    <script src="__STATIC__/js/jquery-1.11.1.min.js"></script>
+    <script src="__STATIC__/js/bootstrap.js"></script>
+    <script src="__PUBLIC__/js/core.js"></script>
+    <block name="script"></block>
+
+    <div class="hidden"><!-- 用于加载统计代码等隐藏元素 -->
+        <block name="hidden"></block>
+    </div>
+    <!-- /底部 -->
+</body>
+</html>

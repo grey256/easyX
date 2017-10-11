@@ -1,0 +1,58 @@
+<extend name="Common@Base/base"/>
+
+<block name="style">
+<link type="text/css" rel="stylesheet" href="__APP__/usercenter/css/login.css">
+</block>
+
+<block name="header"></block>
+
+<block name="body">
+    <section>
+        <!-- 登录 -->
+        <div class="container signin">
+            <div class="row signin-row">
+                <h2 class="signin-title">
+                    开启树屋之旅<br>
+                    <small>我读、我问、我思</small>
+                </h2>
+            </div>
+            <div class="signin-form">
+                <form class="form-signin" method="post" action="login">
+                    <dl class="form">
+                        <dt class="input-label">
+                            <label for="inputLogin" class="sr-only">账号</label>
+                        </dt>
+                        <dd>
+                            <h6 class="note">用户名：</h6>
+                            <input type="login" id="username" name="username" class="form-control" placeholder="用户名" required autofocus>
+                        </dd>
+                    </dl>
+                    <dl class="form">
+                        <dt class="input-label">
+                            <label for="inputPassword" class="sr-only">密码</label>
+                        </dt>
+                        <dd>
+                            <h6 class="note">密码：</h6>
+                            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="密码" required>
+                        </dd>
+                    </dl>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name='remember' value="remember-me"> 记住我
+                        </label>
+                        <a href="#" class="pull-right">忘记密码？</a>
+                    </div>
+                    <button class="btn btn-lg btn-success btn-block" type="submit">登录</button>
+                </form>
+            </div>
+
+            <div class="signin-up">
+                <h5>没有账号？<a href="{:url('usercenter/Member/register')}"><small>现在就加入EasyX 树屋</small></a></h5>
+            </div>
+        </div>
+        <!-- 登录 结束 -->
+    </section>
+</block>
+
+<block name="back_to_top"></block>
+

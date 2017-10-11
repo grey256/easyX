@@ -1,0 +1,47 @@
+<block name="style">
+<link type="text/css" rel="stylesheet" href="__WIDGET__/css/editor.css"/>
+<link rel="stylesheet" href="__EDITOR__/themes/default/css/ueditor.css">
+</block>
+
+<!-- Editor Widget -->
+<div class="row editor-row">
+    <div class="col-md-12 left-form">
+        <form class="form-editor" method="post" action="__SELF__">
+                <dl class="form">
+                    <dt class="input-label">
+                        <label for="inputTitle" class="sr-only">Idea名称</label>
+                    </dt>
+                    <dd>
+                        <p class="note">Idea名称</p>
+                        <input type="title" id="inputTitle" name="title" class="form-control" placeholder="标题" value = "{$ideaInfo.title}" required autofocus/>
+                    </dd>
+                </dl>
+                <dl class="form">
+                    <dt class="input-label">
+                        <label for="inputSummary" class="sr-only">摘要</label>
+                    </dt>
+                    <dd>
+                        <p class="note">摘要<small>（选填）</small></p>
+                        <input type="summary" id="inputSummary" name="summary" class="form-control" placeholder="摘要" value = "{$ideaInfo.summary}"/>
+                    </dd>
+                </dl>
+                <dl class="form">
+                    <dt class="input-label">
+                        <label for="inputContent" class="sr-only">内容</label>
+                    </dt>
+                    <dd>
+                        <p class="note">具体内容</p>
+                        <textarea type="content" id="inputContent" name="content">{$ideaInfo.content}</textarea>
+                    </dd>
+                </dl>
+                <button id="btn-editor" class="btn btn-lg btn-success" type="submit">{$typeAlias}</button>
+            </form>
+    </div>
+</div>
+<!--/Editor Widget -->
+
+<block name="script">
+<script type="text/javascript" src="__LIB__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__LIB__/ueditor/ueditor.all.js"></script>
+<script type="text/javascript" src="__WIDGET__/js/editor.js"></script>
+</block>

@@ -1,0 +1,65 @@
+<div class="modal" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <form class="modal-content" action="" method="post">
+         <div class="modal-header">
+            <button type="button" class="close"
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               Wiki
+            </h4>
+         </div>
+         <div class="modal-body">
+         <dl class="form">
+             <dt class="input-label">
+                 <label for="inputTitle" class="sr-only">标题</label>
+             </dt>
+             <dd>
+                 <p class="note">标题</p>
+                 <input type="title" id="inputTitle" name="title" class="form-control" placeholder="标题" required autofocus>
+             </dd>
+         </dl>
+         <dl class="form">
+             <dt class="input-label">
+                 <label for="inputSummary" class="sr-only">摘要</label>
+             </dt>
+             <dd>
+                 <p class="note">摘要</p>
+                 <input type="summary" id="inputSummary" name="summary" class="form-control" placeholder="摘要">
+             </dd>
+         </dl>
+         <dl class="form" id="modalContent">
+             <dt class="input-label">
+                 <label for="inputContent" class="sr-only">内容</label>
+             </dt>
+             <dd>
+                 <p class="note">内容</p>
+                 <textarea type="content" id="inputContent" name="content" class="form-control" placeholder="内容"></textarea>
+             </dd>
+         </dl>
+         <dl class="form" id="modalOrder">
+             <dt class="input-label">
+                 <label for="selectOrder" class="sr-only">插入位置</label>
+             </dt>
+             <dd>
+                 <p class="note">插入位置</p>
+                 <div class="form-group">
+                 <span>于</span>
+                  <select class="form-control" id="select-position">
+                  </select>
+                  <span>之后</span>
+                  </div>
+             </dd>
+         </dl>
+
+         </div>
+         <div class="modal-footer">
+            <input id="modal-submit" type="submit" class="btn btn-success" value="提交">
+            <button type="button" class="btn btn-default close-modal"
+               data-dismiss="modal">关闭
+            </button>
+         </div>
+      </form><!-- /.modal-content -->
+   </div>
+</div><!-- /.modal -->
